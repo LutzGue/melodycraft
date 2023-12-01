@@ -13,7 +13,6 @@ ad A)
 
 1. Benutzereingabe:
     - Der Benutzer wählt einen Start- und End-Bereich in den Takten aus, in denen die Melodie-Kurve generiert werden soll.
-
     - Der Code sollte eine Benutzerschnittstelle bereitstellen, über die der Benutzer die Tonart (z. B. C-Dur), einen Roman Numeral (I, II, III, IV, V, VI, VII) und einen Verlaufstyp (statisch, linie hoch, linie runter, arc hoch, arc runter) auswählen kann.
 
 2. Berechnung der Akkordtöne:

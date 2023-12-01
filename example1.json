@@ -1,0 +1,71 @@
+{
+  "song": "Laterne",
+  "takt": "6/8",
+  "tonart": {
+    "grundton": "F",
+    "typ": "Dur"
+  },
+  "variationen": 10,
+  "taktbereich": [
+    {
+      "start": 0.1,
+      "ende": 2.4,
+      "verlauf": {
+        "arc": {
+          "typ": "hoch",
+          "start": "C0",
+          "spitze": "C1",
+          "ende": "F0"
+        }
+      },
+      "tonmaterial": {
+        "romanchord":{
+        "chord": "I"}
+      },
+      "notenserie": {
+        "min":9,
+        "max":9
+      }
+    },
+    {
+      "start": 3.1,
+      "ende": 3.4,
+      "verlauf": {
+        "linie": {
+          "typ": "statisch",
+          "start": "G0"
+        }
+      },
+      "tonmaterial": {
+        "diatonisch":{
+          "step": 100,
+          "leap": 0
+        }
+      },
+      "notenserie": {
+        "min":6,
+        "max":6
+      }
+    },
+    {
+      "start": 5.1,
+      "ende": 5.4,
+      "verlauf": {
+        "linie": {
+          "typ": "statisch",
+          "start": "F0"
+        }
+      },
+      "tonmaterial": {
+        "diatonisch":{
+          "step": 100,
+          "leap": 0
+        }
+      },
+      "notenserie": {
+        "min":2,
+        "max":2
+      }
+    }
+  ]
+}
