@@ -1,0 +1,3 @@
+Songname: Laterne
+1) ARC: [C0;C1;F0]
+2) upbeat: [1x;8th]

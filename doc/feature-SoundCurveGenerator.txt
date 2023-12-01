@@ -1,0 +1,45 @@
+Feature: SoundCurveGenerator
+
+Projektidee am: 01.12.2023 von Lutz Menzel in Berlin.
+
+Zwei Fälle werden bei der Generierung von Melodiekurven unterschieden:
+
+A) Melodynote generation (diatonic) based on Chordnotes
+B) Melodynote generation (diatonic) based on Steps and Leaps.
+
+Die Implementierung dieser Anforderungen erfordert mathematische Berechnungen, zufällige Variationen, Benutzereingaben und möglicherweise eine Optimierungsfunktion, um die am besten geeignete Serie zu identifizieren. Der Einsatz von Bibliotheken wie NumPy für mathematische Berechnungen und SciPy für Optimierung könnte nützlich sein.
+
+ad A)
+
+1. Benutzereingabe:
+    - Der Benutzer wählt einen Start- und End-Bereich in den Takten aus, in denen die Melodie-Kurve generiert werden soll.
+
+    - Der Code sollte eine Benutzerschnittstelle bereitstellen, über die der Benutzer die Tonart (z. B. C-Dur), einen Roman Numeral (I, II, III, IV, V, VI, VII) und einen Verlaufstyp (statisch, linie hoch, linie runter, arc hoch, arc runter) auswählen kann.
+
+2. Berechnung der Akkordtöne:
+    - Nach der Auswahl des Roman Numeral sollte der Code die Töne in der vorgegebenen Tonleiter zum Akkord des gewählten Roman Numerals berechnen. Zum Beispiel, in C-Dur mit dem gewählten Roman Numeral III sollten die Töne e, g, b (entsprechend den Nummern 3, 5, 7 in der C-Dur Tonleiter) berechnet werden.
+
+3. Verlaufsdefinition und Berechnung des Focal Points:
+    - Der Benutzer sollte einen Verlaufstyp (statisch, linie hoch, linie runter, arc hoch, arc runter) auswählen können. Für den Verlauf sollten ein Startwert (z. B. "C0"), ein Endpunkt (z. B. "G1") und, falls ein Arc ausgewählt wurde, die Spitze des Arcs (z. B. "C1") definiert werden können. Sofern der Fall "Arc hoch" gewählt wurde entspricht der vorgegebene Spitzenton dem Focal Point. Sofern der Fall "Linie hoch" gewählt wurde entspricht die Endnote dem Focal Point. Sofern der Fall "Linie runter" gewählt wurde entspricht die Start-Note dem Focal Point. Bei "statischer Linie" ist der Focal Point der Start-Ton. Beim Fall "Arc runter" ist zu unterschieden, ob der Start-Ton oder der End-Ton den höchsten Wert hat und ist dann der Focal Point. Allgemein gilt, dass in einer Phrase nur ein Focal Point, also nur eine höchste Note vorkommen sollte.
+
+4. Generierung von Serien:
+    - Der Code sollte n-mal eine Serie mit m Tonnummern generieren können. Der Benutzer sollte die Werte für n und m vorgeben können.
+
+5. Generierung möglicher Noten:
+    - Für jede generierte Serie sollte der Code die möglichen Noten entsprechend der Tonnummern erzeugen können. Zum Beispiel sollte für die Serie (5, 5, 7, 5, 3) die möglichen Noten (G0, G0, B0, G0, E0), (G0, G0, B0, G0, E1), (G0, G0, B0, G1, E1) usw. erzeugt werden können. Die Begrenzung der möglichen Tonhöhen für die jwlg. Töne erfolgt im Rahmen der für den Verlauf definierten Starttöne, Endtöne und Spitzentöne.
+
+6. Optimierung des Verlaufs:
+    - Der Code sollte aus den n generierten Variationen die Serie mit den Noten identifizieren, die am besten dem Verlauf der vorgegebenen Kurve entspricht. Hierbei sollte die Summe der Tonhöhen-Abweichungen zur idealtypischen vorgegebenen Kurve minimiert werden.
+
+7. Resolve instable Notes to stable notes at the end:
+    - 2 resolves to 1
+    - 4 resolves to 3
+    - 6 resolves to 5
+    - 7 resolves to 1
+
+ad. B)
+
+- Im Unterschied zum Fall A) wird hier im Fall B) kein Roman Numeral und keine darauf basierenden Töne durch den Benutzer vorgegeben.
+- Die Serie der Noten wird aus dem diatonischen Tonleitermaterial gebildet. 
+- Die Serie besteht aus x% halbtonschritten und y% Sprüngen. Die prozentuale Verteilung von x und y wird durch den Benutzer vorgegeben.
+- Für den Rest gelten die in A) genannten Punkte.

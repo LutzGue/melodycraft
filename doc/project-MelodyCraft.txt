@@ -1,0 +1,76 @@
+Projektanforderungen für die Entwicklung eines Melodiegenerators in Python
+
+Projektname: MelodyCraft
+
+Projektidee am: 01.12.2023 von Lutz Menzel in Berlin.
+
+Ziel des Projekts:
+Entwickelung einer Python-Anwendung namens MelodyCraft, die es Benutzern ermöglicht, individuelle Melodien zu generieren. Das Programm soll strukturierte und verzierte Noten erstellen, basierend auf den vom Benutzer definierten Parametern.
+
+Anforderungen:
+
+Es wird unterschieden zwischen: 
+i) Backend-Entwicklung
+ii) Frontend-Entwicklung.
+
+Es gibt zwei wesentliche Module: 
+A) Melodie-Generator
+B) Rythmus-Generator
+
+ad. A)
+1. Tonartauswahl:
+   - Der Benutzer kann die Tonart der Melodie auswählen: a) Dur oder b) Moll (z.B. F-Dur).
+
+2. Taktanzahl:
+   - Der Benutzer gibt die Anzahl der Takte für die Melodie an (z.B. 4).
+
+3. Auftakt:
+   - Der Benutzer entscheidet, ob ein Auftakt verwendet werden soll und gibt die Art des Auftakts an 
+      Beispiele:
+      - eine 8tel-Note Auftakt
+      - zwei 8tel Noten Auftakt
+      - kein Auftakt
+
+4. Verlauf der Melodie:
+   - Der Benutzer wählt den Verlauf der Melodie (bzw. der Strukturellen Noten) aus den möglichen Optionen:
+     - a) Statische Linie: die strukturellen Noten verändern die Intervalle nicht, oder nur in einem kleinen Rahmen.
+         Beispiele:
+         - Vorgegebener Statischer Ton: z.B. „A2“
+         - Der Benutzer gibt außerdem den Focal Point der Melodie an (z.B. Note G3).
+         - Veränderung Strukturelle Noten: mindestens 0 Halbtöne, maximal 0 Halbtöne
+         - Veränderung Strukturelle Noten: mindestens 0 Halbtöne, maximal 1 Halbtöne
+     - b) Linie mit Verlauf nach oben: Definition Start-Ton (z.B. „C0“) und End-Ton (z.B. „G1“)
+     - c) Linie mit Verlauf nach unten: Definition Start-Ton (z.B. „G1“) und End-Ton (z.B. „C0“)
+     - d) Arc mit Focal Point oben: Start Ton (z.B. „C0“), Ton für obenliegende Spitze (z.B. „G0“)
+     - e) Arc mit Spitze nach unten: Start Ton (z.B. „G0“), Ton für untenliegende Spitze: (z.B. „C0“)
+
+5. Benutzerdefinierte Parameter:
+   - Der Benutzer definiert für jeden Takt den entsprechenden Start- und End-Bereich für die Melodie-Paramter (z.B. von Takt 1 bis Takt 2)
+     - a) Verwendung vorgegebener Töne in der Tonart (z.B. verwende ausschließlich Ton 5, Ton 1 und Ton 3 aus der Tonart)
+     - b) Verwendung eines statischen Tones und Oszillieren weiterer Töne innerhalb (z.B. statischer Ton ist 2) und gibt den Bereich der oszillierenden Töne an (z.B. Umfang in Halbtonschritten, maximal 2 Halbtöne oszilieren).
+
+6. Vorgabe der Anzahl der zu generierenden Strukturellen Noten innerhalb eines Taktes:
+z.B. minimum 1, maximum 2
+
+7. Anzahl der generierten Variationen:
+z.B. 5 Variationen generieren
+
+8. Generierung der Melodie:
+   - Das Programm generiert im ersten Schritt Strukturelle Noten basierend auf den Vorgaben des Benutzers für jeden Takt.
+   - Die generierten Noten sollen den definierten Melodieverlauf und die benutzerdefinierten Parameter einhalten.
+Beim Generieren der Strukturellen Noten werden gewischtete Wahrscheinlichkeiten verwendet.
+Es können mehrere zufällig generierte Versionen ausgegeben werden.
+
+9. Verzierende Noten:
+   - Basierend auf den strukturellen Noten generiert das Programm verzierende Noten.
+   - Die Verzierungen sollen den musikalischen Kontext berücksichtigen und zu den strukturellen Noten passen.
+
+10. Speicherung als MIDI:
+   - Die generierte Melodie wird als MIDI-Datei und als MusicXML gespeichert, um sie leicht in verschiedenen Musiksoftware-Anwendungen abspielen und bearbeiten zu können. Zudem können diese Dateien als Trainings-Daten für Maschine Learning verwendet werden.
+
+Zusätzliche Anforderungen:
+   - Benutzerfreundliche Schnittstelle für die Eingabe der Parameter. Das Zeichnen der Arc kann durch den Benutzer im Notensystem ermöglicht werden. Hierbei sind die Minimum und Maximum Bereiche für die Töne grafisch editierbar und die Zuordnung der Takte können grafisch selektiert werden.
+   - Validierung der Benutzereingaben, um sicherzustellen, dass die Parameter harmonisch sinnvoll sind.
+   - Dokumentation des Codes und der Benutzeranleitung. Erstellung kleiner Video-Clips für Tutorials (z.B. „Erste Schritte“)
+
+ad. B) TBD.
